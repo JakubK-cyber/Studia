@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE PrototypingGui SYSTEM "rtdsPrototypingGui.dtd">
+
+<PrototypingGui>
+<Gui width="460" height="510" backgroundColor="#DDDDDD" backgroundImage="">
+<Widget id="1" name="ASK" type="BUTTON" x="40" y="410" width="100" height="60" text="START" textColor="#000000" color="#38d655">
+<OutputAction messageName="ASK" data=""></OutputAction>
+</Widget>
+<Widget id="2" name="DEPOSIT" type="BUTTON" x="40" y="320" width="100" height="40" text="DEPOSIT" textColor="#000000" color="#3a3aff">
+<OutputAction messageName="DEPOSIT" data=""></OutputAction>
+</Widget>
+<Widget id="3" name="WITHDRAW" type="BUTTON" x="40" y="260" width="100" height="40" text="WITHDRAW" textColor="#000000" color="#3a3aff">
+<OutputAction messageName="WITHDRAW" data=""></OutputAction>
+</Widget>
+<Widget id="4" name="BALANCE" type="BUTTON" x="40" y="200" width="100" height="40" text="BALANCE" textColor="#000000" color="#3a3aff">
+<OutputAction messageName="BALANCE" data=""></OutputAction>
+</Widget>
+<Widget id="5" name="EXIT" type="BUTTON" x="310" y="410" width="100" height="60" text="EXIT" textColor="#000000" color="#fb001b">
+<OutputAction messageName="EXIT" data=""></OutputAction>
+</Widget>
+<Widget id="6" name="10" type="BUTTON" x="310" y="140" width="100" height="40" text="10" textColor="#000000" color="#3a3aff">
+<OutputAction messageName="TEN" data=""></OutputAction>
+</Widget>
+<Widget id="7" name="20" type="BUTTON" x="310" y="200" width="100" height="40" text="20" textColor="#000000" color="#3a3aff">
+<OutputAction messageName="TWENTY" data=""></OutputAction>
+</Widget>
+<Widget id="8" name="50" type="BUTTON" x="310" y="260" width="100" height="40" text="50" textColor="#000000" color="#3a3aff">
+<OutputAction messageName="FIFTY" data=""></OutputAction>
+</Widget>
+<Widget id="9" name="100" type="BUTTON" x="310" y="320" width="100" height="40" text="100" textColor="#000000" color="#3a3aff">
+<OutputAction messageName="HUNDRED" data=""></OutputAction>
+</Widget>
+<Widget id="10" name="TEXT" type="TEXT_DISPLAY" x="70" y="20" width="310" height="90" text="" textColor="#000000" color="#ffffff">
+</Widget>
+</Gui>
+<Trigger messageName="HowMuchWithdraw">
+<Case caseName="New case">
+<GuiAction widgetId="10" actionType="DISPLAY" value="HOW MUCH DO YOU WANT TO WITHDRAW?"></GuiAction>
+</Case>
+</Trigger>
+<Trigger messageName="HowMuchDeposit">
+<Case caseName="New case">
+<GuiAction widgetId="10" actionType="DISPLAY" value="HOW MUCH DO YOU WANT TO DEPOSIT?"></GuiAction>
+</Case>
+</Trigger>
+<Trigger messageName="BalanceToUser">
+<Case caseName="New case">
+<GuiAction widgetId="10" actionType="DISPLAY_PARAMETER" value="param1"></GuiAction>
+</Case>
+</Trigger>
+<Trigger messageName="OK">
+<Case caseName="New case">
+<GuiAction widgetId="10" actionType="DISPLAY" value="WHAT DO YOU WANT TO DO?"></GuiAction>
+</Case>
+</Trigger>
+<Trigger messageName="UnSuccesfulService">
+<Case caseName="New case">
+<GuiAction widgetId="10" actionType="DISPLAY_PARAMETER" value="param1"></GuiAction>
+</Case>
+</Trigger>
+<Trigger messageName="SuccessfulService">
+<Case caseName="New case">
+<GuiAction widgetId="10" actionType="DISPLAY_PARAMETER" value="param1"></GuiAction>
+</Case>
+</Trigger>
+</PrototypingGui>

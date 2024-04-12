@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Diagram SYSTEM "rtdsDiagram.dtd">
+
+<Diagram language="sdl" type="sys" defaultColorsNeedFixing="FALSE" name="System1" showMsgData="full" linksCrossingAllowed="FALSE" cellWidthMm="4">
+
+<DiagramPartition name="Part. 0" nbPagesH="2" nbPagesV="1">
+<PageSpecification pageWidth="21.0" pageHeight="29.7" topMargin="0.0" bottomMargin="0.0" leftMargin="0.0" rightMargin="0.0" pageFooter="FALSE" scaleFactor="1.0"/>
+
+<Symbol symbolId="SYMB1" type="sdlSysDgmFrm" xCenter="595" yCenter="420" fixedDimensions="TRUE" width="1146" height="775" color="-" fillColor="-">
+<Description></Description>
+<Text></Text>
+
+<Symbol symbolId="SYMB2" type="sdlText" xCenter="506" yCenter="110" fixedDimensions="FALSE" width="990" height="110" color="#000000" fillColor="#FFFFFF">
+<Description></Description>
+<Text>SIGNAL OK,REJ,EXIT,SuccessfulService(CharString),UnSuccesfulService(CharString),BalanceToUser(Integer),HowMuchWithdraw,HowMuchDeposit;
+SIGNAL ASK,WITHDRAW,DEPOSIT,BALANCE,TEN,TWENTY,FIFTY,HUNDRED;
+SIGNAL doWITHDRAW(Integer),doDEPOSIT(Integer),doBALANCE;
+SIGNAL doneWITHDRAW(Boolean),doneBALANCE(Integer),doneDEPOSIT;
+</Text>
+</Symbol>
+
+<Symbol symbolId="SYMB3" type="sdlPrcs" xCenter="528" yCenter="440" fixedDimensions="FALSE" width="88" height="44" color="#000000" fillColor="#C4EFED">
+<Description></Description>
+<Text>Frontend</Text>
+</Symbol>
+
+<Symbol symbolId="SYMB5" type="sdlPrcs" xCenter="968" yCenter="253" fixedDimensions="TRUE" width="88" height="44" color="#000000" fillColor="#C4EFED">
+<Description></Description>
+<Text>Backend</Text>
+</Symbol>
+</Symbol>
+
+<Link linkId="LINK25" type="chnl" textSegmentNum="0" color="#000000" reverseRead="FALSE" oriented="TRUE">
+<Text>ch1</Text>
+<Connector attachedSymbolId="SYMB1" type="chnl" isOutside="FALSE" side="w" position="-0.516129032258" endType="midarrow">
+<Text id="1">[OK,REJ,SuccessfulService,UnSuccesfulService,BalanceToUser,HowMuchWithdraw,HowMuchDeposit]
+</Text>
+<Text id="2"></Text>
+</Connector>
+<Connector attachedSymbolId="SYMB3" type="chnl" isOutside="TRUE" side="y" position="0.0" endType="midarrow">
+<Text id="1">[ASK,WITHDRAW,DEPOSIT,BALANCE,EXIT,TEN,TWENTY,FIFTY,HUNDRED]
+</Text>
+<Text id="2"></Text>
+</Connector>
+<LinkSegment orientation="h" length="187"/>
+<LinkSegment orientation="v" length="253"/>
+<LinkSegment orientation="h" length="341"/>
+
+</Link>
+
+<Link linkId="LINK29" type="chnl" textSegmentNum="0" color="#000000" reverseRead="FALSE" oriented="TRUE">
+<Text>ch2</Text>
+<Connector attachedSymbolId="SYMB3" type="chnl" isOutside="TRUE" side="x" position="0.431818181818" endType="midarrow">
+<Text id="1">[doneWITHDRAW,doneBALANCE,doneDEPOSIT]
+</Text>
+<Text id="2"></Text>
+</Connector>
+<Connector attachedSymbolId="SYMB5" type="chnl" isOutside="TRUE" side="y" position="0.5" endType="midarrow">
+<Text id="1">[doWITHDRAW,doDEPOSIT,doBALANCE]
+</Text>
+<Text id="2"></Text>
+</Connector>
+<LinkSegment orientation="v" length="-176"/>
+<LinkSegment orientation="h" length="421"/>
+
+</Link>
+</DiagramPartition>
+
+</Diagram>

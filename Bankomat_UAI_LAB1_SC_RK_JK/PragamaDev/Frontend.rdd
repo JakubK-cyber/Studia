@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Diagram SYSTEM "rtdsDiagram.dtd">
+
+<SdlFSMDiagram language="sdl" type="prcs" is_extract="FALSE" is_temporary="FALSE">
+<SdlFSMPartition name="" needs_cleanup="FALSE">
+<SdlFSMSymbol identifier="SYM106" type="sdlText" text="dcl
+isFree Boolean := TRUE,
+Balance_value Integer,
+ifSuccessful Boolean;" outline_color="-" background_color="-" center_coordinates="174 108" dimensions="180 76" attached_symbol_id=""/>
+<NonStateTransition top_left_coordinates="235 218">
+<SdlFSMSymbol identifier="SYM1" type="sdlStart" outline_color="-" background_color="-" center_coordinates="301 233" dimensions="60 30" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM4" type="sdlState" text="GetSignal" outline_color="-" background_color="-" center_coordinates="301 280" dimensions="82 40" attached_symbol_id=""/>
+</Transition>
+</NonStateTransition>
+<StateTransitionBlock top_left_coordinates="536 219">
+<SdlFSMSymbol identifier="SYM48" type="sdlState" text="WhatUserWant" outline_color="-" background_color="-" center_coordinates="595 239" dimensions="104 40" attached_symbol_id=""/>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM54" type="sdlInputSig" text="DEPOSIT" outline_color="-" background_color="-" center_coordinates="595 291" dimensions="68 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM62" type="sdlSendSig" text="HowMuchDeposit" outline_color="-" background_color="-" center_coordinates="595 343" dimensions="118 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM110" type="sdlState" text="Deposit" outline_color="-" background_color="-" center_coordinates="595 395" dimensions="68 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM55" type="sdlInputSig" text="WITHDRAW" outline_color="-" background_color="-" center_coordinates="726 291" dimensions="76 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM61" type="sdlSendSig" text="HowMuchWithdraw" outline_color="-" background_color="-" center_coordinates="726 343" dimensions="124 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM111" type="sdlState" text="Withdraw" outline_color="-" background_color="-" center_coordinates="726 395" dimensions="76 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM56" type="sdlInputSig" text="BALANCE" outline_color="-" background_color="-" center_coordinates="850 291" dimensions="68 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM60" type="sdlSendSig" text="doBALANCE" outline_color="-" background_color="-" center_coordinates="850 343" dimensions="82 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM98" type="sdlState" text="AfterService" outline_color="-" background_color="-" center_coordinates="850 395" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM57" type="sdlInputSig" text="EXIT" outline_color="-" background_color="-" center_coordinates="974 291" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM58" type="sdlTask" text="isFree := true;" outline_color="-" background_color="-" center_coordinates="974 343" dimensions="124 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM59" type="sdlState" text="GetSignal" outline_color="-" background_color="-" center_coordinates="974 395" dimensions="82 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+</StateTransitionBlock>
+<StateTransitionBlock top_left_coordinates="494 763">
+<SdlFSMSymbol identifier="SYM76" type="sdlState" text="AfterService" outline_color="-" background_color="-" center_coordinates="637 783" dimensions="104 40" attached_symbol_id=""/>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM79" type="sdlInputSig" text="doneWITHDRAW(ifSuccessful)" outline_color="-" background_color="-" center_coordinates="637 835" dimensions="202 40" attached_symbol_id=""/>
+<Transition>
+<DecisionBlock>
+<SdlFSMSymbol identifier="SYM86" type="sdlDecision" text="ifSuccessful = TRUE" outline_color="-" background_color="-" center_coordinates="637 887" dimensions="152 40" attached_symbol_id=""/>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM87" type="sdlAnswer" text="TRUE" outline_color="-" background_color="-" center_coordinates="637 939" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM91" type="sdlSendSig" text="SuccessfulService('Withdraw was done')" outline_color="-" background_color="-" center_coordinates="637 991" dimensions="286 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM93" type="sdlState" text="WhatUserWant" outline_color="-" background_color="-" center_coordinates="637 1043" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM88" type="sdlAnswer" text="FALSE" outline_color="-" background_color="-" center_coordinates="961 939" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM92" type="sdlSendSig" text="UnSuccesfulService('Not enough money in bank')" outline_color="-" background_color="-" center_coordinates="961 991" dimensions="342 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM105" type="sdlState" text="WhatUserWant" outline_color="-" background_color="-" center_coordinates="961 1043" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+</DecisionBlock>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM99" type="sdlInputSig" text="doneBALANCE(Balance_value)" outline_color="-" background_color="-" center_coordinates="1250 835" dimensions="202 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM103" type="sdlSendSig" text="BalanceToUser(Balance_value)" outline_color="-" background_color="-" center_coordinates="1250 887" dimensions="216 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM104" type="sdlState" text="WhatUserWant" outline_color="-" background_color="-" center_coordinates="1250 939" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM146" type="sdlInputSig" text="doneDEPOSIT" outline_color="-" background_color="-" center_coordinates="1510 835" dimensions="96 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM147" type="sdlSendSig" text="SuccessfulService('Deposit was done')" outline_color="-" background_color="-" center_coordinates="1510 887" dimensions="284 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM148" type="sdlState" text="WhatUserWant" outline_color="-" background_color="-" center_coordinates="1510 939" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+</StateTransitionBlock>
+<StateTransitionBlock top_left_coordinates="527 484">
+<SdlFSMSymbol identifier="SYM112" type="sdlState" text="Deposit" outline_color="-" background_color="-" center_coordinates="582 504" dimensions="68 40" attached_symbol_id=""/>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM113" type="sdlInputSig" text="TEN" outline_color="-" background_color="-" center_coordinates="582 556" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM117" type="sdlSendSig" text="doDEPOSIT(10)" outline_color="-" background_color="-" center_coordinates="582 608" dimensions="110 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM121" type="sdlState" text="AfterService" outline_color="-" background_color="-" center_coordinates="582 660" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM114" type="sdlInputSig" text="TWENTY" outline_color="-" background_color="-" center_coordinates="702 556" dimensions="62 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM118" type="sdlSendSig" text="doDEPOSIT(20)" outline_color="-" background_color="-" center_coordinates="702 608" dimensions="110 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM122" type="sdlState" text="AfterService" outline_color="-" background_color="-" center_coordinates="702 660" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM115" type="sdlInputSig" text="FIFTY" outline_color="-" background_color="-" center_coordinates="822 556" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM119" type="sdlSendSig" text="doDEPOSIT(50)" outline_color="-" background_color="-" center_coordinates="822 608" dimensions="110 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM123" type="sdlState" text="AfterService" outline_color="-" background_color="-" center_coordinates="822 660" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM116" type="sdlInputSig" text="HUNDRED" outline_color="-" background_color="-" center_coordinates="946 556" dimensions="68 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM120" type="sdlSendSig" text="doDEPOSIT(100)" outline_color="-" background_color="-" center_coordinates="946 608" dimensions="118 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM124" type="sdlState" text="AfterService" outline_color="-" background_color="-" center_coordinates="946 660" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM138" type="sdlInputSig" text="EXIT" outline_color="-" background_color="-" center_coordinates="1074 556" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM139" type="sdlTask" text="isFREE:= true;" outline_color="-" background_color="-" center_coordinates="1074 608" dimensions="118 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM140" type="sdlState" text="GetSignal" outline_color="-" background_color="-" center_coordinates="1074 660" dimensions="82 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+</StateTransitionBlock>
+<StateTransitionBlock top_left_coordinates="1174 489">
+<SdlFSMSymbol identifier="SYM125" type="sdlState" text="Withdraw" outline_color="-" background_color="-" center_coordinates="1233 509" dimensions="76 40" attached_symbol_id=""/>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM126" type="sdlInputSig" text="TEN" outline_color="-" background_color="-" center_coordinates="1233 561" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM127" type="sdlSendSig" text="doWITHDRAW(10)" outline_color="-" background_color="-" center_coordinates="1233 613" dimensions="118 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM128" type="sdlState" text="AfterService" outline_color="-" background_color="-" center_coordinates="1233 665" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM129" type="sdlInputSig" text="TWENTY" outline_color="-" background_color="-" center_coordinates="1361 561" dimensions="62 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM130" type="sdlSendSig" text="doWITHDRAW(20)" outline_color="-" background_color="-" center_coordinates="1361 613" dimensions="118 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM131" type="sdlState" text="AfterService" outline_color="-" background_color="-" center_coordinates="1361 665" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM132" type="sdlInputSig" text="FIFTY" outline_color="-" background_color="-" center_coordinates="1489 561" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM133" type="sdlSendSig" text="doWITHDRAW(50)" outline_color="-" background_color="-" center_coordinates="1489 613" dimensions="118 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM134" type="sdlState" text="AfterService" outline_color="-" background_color="-" center_coordinates="1489 665" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM135" type="sdlInputSig" text="HUNDRED" outline_color="-" background_color="-" center_coordinates="1620 561" dimensions="68 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM136" type="sdlSendSig" text="doWITHDRAW(100)" outline_color="-" background_color="-" center_coordinates="1620 613" dimensions="124 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM137" type="sdlState" text="AfterService" outline_color="-" background_color="-" center_coordinates="1620 665" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM141" type="sdlInputSig" text="EXIT" outline_color="-" background_color="-" center_coordinates="1754 561" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM142" type="sdlTask" text="isFREE := TRUE;" outline_color="-" background_color="-" center_coordinates="1754 613" dimensions="124 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM145" type="sdlState" text="GetSignal" outline_color="-" background_color="-" center_coordinates="1754 665" dimensions="82 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+</StateTransitionBlock>
+<StateTransitionBlock top_left_coordinates="227 90">
+<SdlFSMSymbolReference identifier="SYM4"/>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM5" type="sdlInputSig" text="ASK" outline_color="-" background_color="-" center_coordinates="301 332" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<DecisionBlock>
+<SdlFSMSymbol identifier="SYM41" type="sdlDecision" text="isFree = TRUE" outline_color="-" background_color="-" center_coordinates="301 384" dimensions="110 40" attached_symbol_id=""/>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM42" type="sdlAnswer" text="TRUE" outline_color="-" background_color="-" center_coordinates="301 436" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM51" type="sdlTask" text="isFree := FALSE;" outline_color="-" background_color="-" center_coordinates="301 488" dimensions="132 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM47" type="sdlSendSig" text="OK" outline_color="-" background_color="-" center_coordinates="301 540" dimensions="60 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM109" type="sdlState" text="WhatUserWant" outline_color="-" background_color="-" center_coordinates="301 592" dimensions="104 40" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM43" type="sdlAnswer" text="FALSE" outline_color="-" background_color="-" center_coordinates="418 436" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM63" type="sdlSendSig" text="REJ" outline_color="-" background_color="-" center_coordinates="418 488" dimensions="60 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM53" type="sdlState" text="GetSignal" outline_color="-" background_color="-" center_coordinates="418 540" dimensions="82 40" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+</DecisionBlock>
+</Transition>
+</NormalStateTransition>
+</StateTransitionBlock>
+<PageSpecification pageWidth="21.0" pageHeight="29.7" topMargin="1.0" bottomMargin="1.0" leftMargin="1.0" rightMargin="1.0" pageFooter="TRUE" scaleFactor="1.0"/>
+</SdlFSMPartition>
+</SdlFSMDiagram>

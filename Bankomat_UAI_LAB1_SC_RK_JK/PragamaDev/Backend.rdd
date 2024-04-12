@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Diagram SYSTEM "rtdsDiagram.dtd">
+
+<SdlFSMDiagram language="sdl" type="prcs" is_extract="FALSE" is_temporary="FALSE">
+<SdlFSMPartition name="" needs_cleanup="FALSE">
+<SdlFSMSymbol identifier="SYM13" type="sdlText" text="dcl
+MoneyInAccount Integer := 150,
+Withdraw_value Integer,
+Deposit_value  Integer;" outline_color="-" background_color="-" center_coordinates="352 72" dimensions="230 76" attached_symbol_id=""/>
+<NonStateTransition top_left_coordinates="547 43">
+<SdlFSMSymbol identifier="SYM1" type="sdlStart" outline_color="-" background_color="-" center_coordinates="732 58" dimensions="60 30" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM3" type="sdlState" text="DoWhatUserWant" outline_color="-" background_color="-" center_coordinates="732 105" dimensions="118 40" attached_symbol_id=""/>
+</Transition>
+</NonStateTransition>
+<StateTransitionBlock top_left_coordinates="547 85">
+<SdlFSMSymbolReference identifier="SYM3"/>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM10" type="sdlInputSig" text="doWITHDRAW(Withdraw_value)" outline_color="-" background_color="-" center_coordinates="732 157" dimensions="202 40" attached_symbol_id=""/>
+<Transition>
+<DecisionBlock>
+<SdlFSMSymbol identifier="SYM14" type="sdlDecision" text="MoneyInAccount - Withdraw_value &gt; 0" outline_color="-" background_color="-" center_coordinates="732 209" dimensions="264 40" attached_symbol_id=""/>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM15" type="sdlAnswer" text="TRUE" outline_color="-" background_color="-" center_coordinates="732 261" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM22" type="sdlTask" text="MoneyInAccount := MoneyInAccount - Withdraw_value;" outline_color="-" background_color="-" center_coordinates="732 313" dimensions="370 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM18" type="sdlSendSig" text="doneWITHDRAW(TRUE)" outline_color="-" background_color="-" center_coordinates="732 365" dimensions="146 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM20" type="sdlState" text="DoWhatUserWant" outline_color="-" background_color="-" center_coordinates="732 417" dimensions="118 40" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM16" type="sdlAnswer" text="FALSE" outline_color="-" background_color="-" center_coordinates="1003 261" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM19" type="sdlSendSig" text="doneWITHDRAW(FALSE)" outline_color="-" background_color="-" center_coordinates="1003 313" dimensions="152 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM21" type="sdlState" text="DoWhatUserWant" outline_color="-" background_color="-" center_coordinates="1003 365" dimensions="118 40" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+</DecisionBlock>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM11" type="sdlInputSig" text="doDEPOSIT(Deposit_value)" outline_color="-" background_color="-" center_coordinates="1270 157" dimensions="188 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM23" type="sdlTask" text="MoneyInAccount := MoneyInAccount + Deposit_value;" outline_color="-" background_color="-" center_coordinates="1270 209" dimensions="362 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM29" type="sdlSendSig" text="doneDEPOSIT" outline_color="-" background_color="-" center_coordinates="1270 261" dimensions="102 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM26" type="sdlState" text="DoWhatUserWant" outline_color="-" background_color="-" center_coordinates="1270 313" dimensions="118 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM12" type="sdlInputSig" text="doBALANCE" outline_color="-" background_color="-" center_coordinates="1565 157" dimensions="82 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM27" type="sdlSendSig" text="doneBALANCE(MoneyInAccount)" outline_color="-" background_color="-" center_coordinates="1565 209" dimensions="208 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM28" type="sdlState" text="DoWhatUserWant" outline_color="-" background_color="-" center_coordinates="1565 261" dimensions="118 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+</StateTransitionBlock>
+<PageSpecification pageWidth="21.0" pageHeight="29.7" topMargin="1.0" bottomMargin="1.0" leftMargin="1.0" rightMargin="1.0" pageFooter="TRUE" scaleFactor="1.0"/>
+</SdlFSMPartition>
+</SdlFSMDiagram>
